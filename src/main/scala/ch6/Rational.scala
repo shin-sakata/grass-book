@@ -1,3 +1,5 @@
+package ch6
+
 import scala.annotation.tailrec
 
 class Rational(n: Int, d: Int) {
@@ -23,12 +25,32 @@ class Rational(n: Int, d: Int) {
       this.numer * that.denom + that.numer * this.denom,
       this.denom * that.denom
     )
+  def +(i: Int): Rational =
+    new Rational(numer + i * denom, denom)
+
+  def -(that: Rational): Rational =
+    new Rational(
+      this.numer * that.denom - that.numer * this.denom,
+      this.denom * that.denom
+    )
+  def -(i: Int): Rational =
+    new Rational(numer - i * denom, denom)
 
   def *(that: Rational): Rational =
     new Rational(
       this.numer * that.numer,
       this.denom * that.denom
     )
+  def *(i: Int): Rational =
+    new Rational(this.numer * i, this.denom)
+
+  def /(that: Rational): Rational =
+    new Rational(
+      this.numer * that.denom,
+      this.denom * that.numer
+    )
+  def /(i: Int): Rational =
+    new Rational(this.numer, this.denom * i)
 
   // thisの方がthatより小さいか
   def lessThan(that: Rational): Boolean =
