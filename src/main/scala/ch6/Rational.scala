@@ -1,5 +1,9 @@
 package ch6
 
+object Ch6 extends App {
+  println(new Rational(1, 1))
+}
+
 import scala.annotation.tailrec
 
 class Rational(n: Int, d: Int) {
